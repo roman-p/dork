@@ -1,12 +1,12 @@
 # Dork
 
-[![Build Status](https://travis-ci.org/Data-Science-Platform/dork.svg?branch=master)](https://travis-ci.org/Data-Science-Platform/dork)
-[![Docker Pulls](https://img.shields.io/docker/pulls/datascienceplatform/dorkd.svg?maxAge=2592000)](https://hub.docker.com/r/datascienceplatform/dorkd/)
+[![Build Status](https://travis-ci.org/roman-p/dork.svg?branch=master)](https://travis-ci.org/roman-p/dork)
+[![Docker Pulls](https://img.shields.io/docker/pulls/romanp/dorkd.svg?maxAge=2592000)](https://hub.docker.com/r/romanp/dorkd/)
 
 ## Description
 
 Spark Docker image for deploying a stand-alone cluster.
-There are [tags](https://hub.docker.com/r/datascienceplatform/dorkd/tags/) for different Spark versions available.
+There are [tags](https://hub.docker.com/r/romanp/dorkd/tags/) for different Spark versions available.
 
 ## Usage
 
@@ -31,7 +31,7 @@ sudo docker run --net host \
   -e SPARK_USER_ID=1100 \
   -e SPARK_GROUP_NAME=spark \
   -e SPARK_GROUP_ID=1100 \
-  datascienceplatform/dorkd:latest-s2.0.2-h2.7 start-master
+  romanp/dorkd:latest-s2.0.2-h2.7 start-master
 ```
 
 ### Starting a Worker
@@ -58,7 +58,7 @@ sudo docker run -d --net host \
   -e SPARK_GROUP_ID=1100 \
   -e SPARK_SHUFFLE_SERVICE_ENABLED=true \
   -e SPARK_SHUFFLE_SERVICE_PORT=7337 \
-  datascienceplatform/dorkd:latest-s2.0.2-h2.7 start-worker
+  romanp/dorkd:latest-s2.0.2-h2.7 start-worker
 ```
 
 ### Submitting an Application
@@ -76,7 +76,7 @@ sudo docker run -d --net host \
   -e SPARK_APPLICATION_TARGET="/application" \
   -e SPARK_APPLICATION_USERNAME="user" \
   -e SPARK_APPLICATION_PASSWORD="password" \
-  datascienceplatform/dorkd:latest-s2.0.2-h2.7 \
+  romanp/dorkd:latest-s2.0.2-h2.7 \
   --class org.apache.spark.examples.SparkPi \
   --master "local[*]" \
   /path/to/examples.jar \
@@ -97,5 +97,5 @@ sudo docker run -d -p 8022:22 \
   -v /etc/ssl/certs/ca-certificates.crt:/etc/ssl/certs/ca-certificates.crt:ro \
   -e LDAP_MATCH_GROUP=spark \
   -e DORK_SSH_PORT=22 \
-  datascienceplatform/dorkd:latest-s2.0.2-h2.7
+  romanp/dorkd:latest-s2.0.2-h2.7
 ```
